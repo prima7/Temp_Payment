@@ -6,7 +6,7 @@ function InputName() {
                 Diminta Oleh
             </label>
             <label id='divider'>:</label>
-            <input name='CustomerName' type='text'>
+            <input id='CustomerName' type='text'>
             </input>
         </div>
     )
@@ -18,7 +18,7 @@ function InputNeeds() {
                 Keperluan Payment
             </label>
             <label id='divider'>:</label>
-            <input name='PaymentNeeds' type='text' placeholder='-Kebutuhan Payment-'>
+            <input id='PaymentNeeds' type='text' placeholder='-Kebutuhan Payment-'>
             </input>
         </div>
     )
@@ -30,7 +30,7 @@ function InputDate() {
                 Tanggal Pembayaran Aktual
             </label>
             <label id='divider'>:</label>
-            <input name='PaymentDate' type='date'>
+            <input id='PaymentDate' type='date'>
             </input>
         </div>
     )
@@ -42,7 +42,7 @@ function InputAmount_Number() {
                 Jumlah Payment
             </label>
             <label id='divider'>:</label>
-            <input name='AmountNumber' type='number'>
+            <input id='AmountNumber' type='number'>
             </input>
         </div>
     )
@@ -54,7 +54,7 @@ function InputAmount_Text() {
                 Terbilang
             </label>
             <label id='divider'>:</label>
-            <input name='AmountText' type='text'>
+            <input id='AmountText' type='text'>
             </input>
         </div>
     )
@@ -66,7 +66,7 @@ function InputRecipient_Name() {
                 Nama Rek. / Penerima
             </label>
             <label id='divider'>:</label>
-            <input name='RecipientNumber' type='text'>
+            <input id='RecipientNumber' type='text'>
             </input>
         </div>
     )
@@ -78,7 +78,7 @@ function InputRecipient_Number() {
                 No. Rekening Penerima
             </label>
             <label id='divider'>:</label>
-            <input name='RecipientNumber' type='number'>
+            <input id='RecipientNumber' type='number'>
             </input>
         </div>
     )
