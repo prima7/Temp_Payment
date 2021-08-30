@@ -33,7 +33,7 @@ class SiderBar extends React.Component {
                     Beranda
                 </Menu.Item>
                 <Menu.Item key="2" icon={<FormOutlined />}>
-                    Buat Payment Request
+                    Payment Request
                 </Menu.Item>
 
             </Menu>
