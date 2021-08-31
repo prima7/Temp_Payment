@@ -1,35 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'antd/dist/antd.css';
 import './SideBar.css';
 import { Layout, Menu, Divider, Avatar, Card } from 'antd';
 import {
-    FormOutlined,
-    HomeOutlined,
     MenuOutlined,
     UserOutlined
 } from '@ant-design/icons';
+import { FaTachometerAlt, FaRegEdit } from "react-icons/fa";
 import FormInputPayment from '../form/FormInputPayment';
 import FooterPayment from './Footer'
 import logo from '../../assets/logo.svg';
 
 const { Header, Sider, Content, Footer } = Layout;
 
-class SiderBar extends React.Component {
-    state = {
-        collapsed: false,
-    };
+function SiderBar(){
+    const [collapsed, setCollapsed] = useState(false);
+    const toggle = () => setCollapsed(!collapsed);
 
-    toggle = () => {
-        this.setState({
-        collapsed: !this.state.collapsed,
-        });
-    };
-
-    render() {
-        return (
+    return (
         <Layout style={{ minHeight: '100vh' }}>
             {/* menu sidebar */}
-            <Sider style={{ boxShadow: "3px 4px 10px rgba(0, 0, 0, 0.25)" }}  theme="light" trigger={null} collapsible collapsed={this.state.collapsed}>
+            <Sider style={{ boxShadow: "3px 4px 10px rgba(0, 0, 0, 0.25)" }}  theme="light" trigger={null} collapsible collapsed={collapsed}>
                 
             {/* logo */}
             <Menu className="logo" theme="light">
@@ -40,11 +31,11 @@ class SiderBar extends React.Component {
             <Divider />
 
             {/* pilihan menu */}
-            <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1" icon={<HomeOutlined />}>
+            <Menu theme="light" mode="inline" defaultSelectedKeys={['2']}>
+                <Menu.Item key="1" icon={<FaTachometerAlt />}>
                     Beranda
                 </Menu.Item>
-                <Menu.Item key="2" icon={<FormOutlined />}>
+                <Menu.Item key="2" icon={<FaRegEdit />}>
                     Payment Request
                 </Menu.Item>
             </Menu>
@@ -61,9 +52,9 @@ class SiderBar extends React.Component {
                     flexDirection: "row", 
                     justifyContent: "space-between" 
             }}>
-                {React.createElement(this.state.collapsed ? MenuOutlined : MenuOutlined, {
+                {React.createElement(collapsed ? MenuOutlined : MenuOutlined, {
                 className: 'trigger',
-                onClick: this.toggle,
+                onClick: toggle,
                 })}
 
                 <Avatar icon={<UserOutlined />} style={{ margin: "15px" }} />
@@ -95,8 +86,7 @@ class SiderBar extends React.Component {
             <Footer className="site-layout-background"><FooterPayment/></Footer>
             </Layout>
         </Layout>
-        );
-    }
+    );
 }
 
 

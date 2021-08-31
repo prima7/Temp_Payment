@@ -1,5 +1,4 @@
 import { Row, Col } from 'antd';
-import './SideBar.css';
 
 function CopyRightText() {
     return (
