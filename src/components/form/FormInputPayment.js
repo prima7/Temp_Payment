@@ -1,82 +1,102 @@
-function InputName() {
-    return (
-        <div className="row-input">
-            <label id="caption">Diminta Oleh</label>
-            <label id="divider">:</label>
-            <input id="CustomerName" type="text"></input>
-        </div>
-    );
+import { Form, Input, Button, DatePicker, Divider } from 'antd';
+import moment from 'moment';
+import { SendOutlined } from '@ant-design/icons';
+import './styleFormPayment.css';
+
+const { TextArea } = Input;
+const layout = {
+    labelCol: { span: 4 },
+    wrapperCol: { span: 10 },
+};
+const layoutbutton = {
+    wrapperCol: { span: 14 },
 }
-function InputNeeds() {
+const myDateFormat = ["DD/MM/YYYY"]
+
+function Form_Request() {
     return (
-        <div className="row-input">
-            <label id="caption">Keperluan Payment</label>
-            <label id="divider">:</label>
-            <input
-                id="PaymentNeeds"
-                type="text"
-                placeholder="-Kebutuhan Payment-"
-            ></input>
-        </div>
+        <Form {...layout} name="Form_Fill_Request" size="large">
+            <Form.Item
+                name="CustomerName"
+                label="Diminta Oleh"
+            >
+                <Input
+                    placeholder="Nama Customer"
+                />
+            </Form.Item>
+            <Form.Item
+                name="PaymentReason"
+                label="Keperluan Payment"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Keperluan Payment Wajib Di Isi!',
+                    },
+                ]}
+            >
+                <Input
+                    placeholder="Kebutuhan Payment"
+                />
+            </Form.Item>
+            <Form.Item
+                name="PaymentDate"
+                label="Tanggal Pembayaran Aktual"
+            >
+                <DatePicker
+                    defaultValue={moment()}
+                    format={myDateFormat}
+                />
+            </Form.Item>
+            <Form.Item
+                name="AmountNumber"
+                label="Jumlah Payment"
+            >
+                <Input
+                    type="number"
+                    prefix="Rp."
+                />
+            </Form.Item>
+            <Form.Item
+                name="AmountText"
+                label="Terbilang"
+            >
+                <TextArea
+                    autoSize={{ minRows: 2 }}
+                />
+            </Form.Item>
+            <Form.Item
+                name="RecipientName"
+                label="Nama Rekening / Penerima"
+            >
+                <Input
+                    placeholder="Nama Penerima"
+                />
+            </Form.Item>
+            <Form.Item
+                name="RecipientAccount"
+                label="No. Rekening Penerima"
+            >
+                <Input
+                    placeholder="No. Rekening Penerima"
+                />
+            </Form.Item>
+            <Form.Item
+                wrapperCol={{ ...layoutbutton.wrapperCol }}
+            >
+                <Button type="primary" htmlType="submit">
+                    Submit Payment Request
+                    < SendOutlined />
+                </Button>
+            </Form.Item>
+        </Form >
     );
-}
-function InputDate() {
-    return (
-        <div className="row-input">
-            <label id="caption">Tanggal Pembayaran Aktual</label>
-            <label id="divider">:</label>
-            <input id="PaymentDate" type="date"></input>
-        </div>
-    );
-}
-function InputAmountNumber() {
-    return (
-        <div className="row-input">
-            <label id="caption">Jumlah Payment</label>
-            <label id="divider">:</label>
-            <input id="AmountNumber" type="number"></input>
-        </div>
-    );
-}
-function InputAmountText() {
-    return (
-        <div className="row-input">
-            <label id="caption">Terbilang</label>
-            <label id="divider">:</label>
-            <input id="AmountText" type="text"></input>
-        </div>
-    );
-}
-function InputRecipientName() {
-    return (
-        <div className="row-input">
-            <label id="caption">Nama Rek. / Penerima</label>
-            <label id="divider">:</label>
-            <input id="RecipientNumber" type="text"></input>
-        </div>
-    );
-}
-function InputRecipientNumber() {
-    return (
-        <div className="row-input">
-            <label id="caption">No. Rekening Penerima</label>
-            <label id="divider">:</label>
-            <input id="RecipientNumber" type="number"></input>
-        </div>
-    );
-}
+};
+
 function FormInputPayment() {
     return (
-        <div className="form-Payment">
-            <h1>Silahkan Isi Form Payment Request</h1>
-            <InputName />
-            <InputNeeds />
-            <InputDate />
-            <InputAmountNumber />
-            <InputAmountText />
-            <InputRecipientName />
-            <InputRecipientNumber />
-            <input type="submit" value="Submit Payment Request"></input>
+        <div>
+            <Divider orientation="left"><h1>Silahkan Isi Form Payment Request</h1></Divider>
+            <Form_Request />
         </div>
     );
 }
