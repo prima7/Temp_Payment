@@ -68,7 +68,6 @@ function InputRecipientNumber() {
 function FormInputPayment() {
     return (
         <div className="form-Payment">
-            <h1>Silahkan Isi Form Payment Request</h1>
             <InputName />
             <InputNeeds />
             <InputDate />
